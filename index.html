@@ -5,752 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Textile Machinery Spares</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <style>
         /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Header */
-        .site-header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 0 20px;
-        }
-
-        .header-container {
-            max-width: 1800px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 0;
-        }
-
-        /* Logo */
-        .logo {
-            flex-shrink: 0;
-        }
-
-        .logo-image {
-            height: 50px;
-            width: auto;
-        }
-
-        /* Main Navigation */
-        .main-nav {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .nav-list {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: #616161;
-            font-weight: 500;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-link:hover {
-            color: #0066cc;
-            background: #f5f5f5;
-        }
-
-        .nav-link.current {
-            color: #0066cc;
-            font-weight: 600;
-        }
-
-        /* Dropdown Menus */
-        .nav-item.dropdown:hover .submenu {
-            display: block;
-        }
-
-        .submenu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            min-width: 220px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 4px;
-            padding: 10px 0;
-            z-index: 1000;
-            list-style: none;
-        }
-
-        .submenu .submenu {
-            left: 100%;
-            top: 0;
-        }
-
-        .submenu .nav-link {
-            padding: 10px 20px;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .nav-arrow {
-            font-size: 12px;
-            margin-left: 5px;
-        }
-
-        /* Search */
-        .search-btn {
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            color: #333;
-            padding: 8px;
-        }
-
-        .search-btn:hover {
-            color: #0066cc;
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333;
-        }
-
-        /* Image Slider */
-        .image-slider {
-            height: 600px;
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            margin-bottom: 0;
-            margin-top: 80px;
-        }
-
-        .slider-container {
-            height: 100%;
-            position: relative;
-            width: 100%;
-        }
-
-        .slider-image {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-        }
-
-        .slider-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 30%;
-            display: block;
-        }
-
-        .slider-image.active {
-            opacity: 1;
-        }
-
-        /* Content Section */
-        .content-section {
-            max-width: 1400px;
-            margin: 80px auto;
-            padding: 0 40px;
-            text-align: center;
-        }
-
-        .content-section h2 {
-            font-size: 36px;
-            font-weight: normal;
-            color: #333;
-            margin-bottom: 30px;
-        }
-
-        .content-section h2 span {
-            font-weight: bold;
-            color: black;
-        }
-
-        .content-section p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.8;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: justify;
-        }
-
-        /* Service Section - Full Width */
-        .service-section {
-            width: 100%;
-            margin: 80px 0;
-            padding: 80px 0;
-            background-color: #f5f5f5;
-            text-align: center;
-        }
-
-        .service-section .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .service-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 400px;
-
-            border-radius: 12px;
-            padding: 50px 30px;
-            text-align: center;
-
-        }
-
-
-
-        .service-card h2 {
-            font-size: 14px;
-            color: #333;
-            margin: 20px 0 15px;
-            font-weight: 600;
-        }
-
-        .service-card p {
-            font-size: 13px;
-            color: #666;
-
-            text-align: center;
-        }
-
-        /* Emoji/Icon Styling */
-        .service-card::before {
-            content: "🌎";
-            font-size: 60px;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        /* Change emoji for each card */
-        .service-card:nth-child(1)::before {
-            content: "🌎";
-        }
-
-        .service-card:nth-child(2)::before {
-            content: "⚙️";
-        }
-
-        .service-card:nth-child(3)::before {
-            content: "⭐";
-        }
-
-        /* About Section */
-        .about-section {
-            width: 100%;
-            margin: 80px 0;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .about-section .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .about-btn {
-            background-color: #424242;
-            color: white;
-            border: none;
-            padding: 18px 15px;
-            font-size: 16px;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            min-width: 280px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            letter-spacing: 0.5px;
-        }
-
-        .about-btn:hover {
-            background-color: #000000;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .about-btn:active {
-            transform: translateY(-1px);
-        }
-
-        .about-btn i {
-            font-size: 16px;
-            transition: transform 0.3s ease;
-        }
-
-        /* Product Section - UPDATED */
-        .product-section {
-            max-width: 1400px;
-            margin: 80px auto;
-            padding: 0 40px;
-            text-align: center;
-        }
-
-        .product-section h2 {
-            font-size: 36px;
-            font-weight: normal;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .product-section h2 span {
-            font-weight: bold;
-            color: black;
-        }
-
-        .product-section p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-
-        /* Category Buttons */
-        .category-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 60px;
-        }
-
-        .category-btn {
-
-            background-color: #50485B;
-            color: white;
-            padding: 14px 28px;
-            font-size: 16px;
-            font-weight: 600;
-
-            cursor: pointer;
-
-            min-width: 160px;
-        }
-
-        .category-btn:hover {
-            border-color: #413a4a;
-            background-color: #413a4a;
-            color: #fff;
-        }
-
-        .category-btn.active {
-            background-color: #f0f0f0;
-            border-color: #f8f8f8;
-            color: #666;
-        }
-
-        /* Product Slider - UPDATED */
-        .product-slider-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .product-slider {
-            display: flex;
-            background-color: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            min-height: 400px;
-            /* Reduced height */
-        }
-
-        .slider-image-container {
-            flex: 1;
-            min-width: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .slider-image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .slider-content {
-            flex: 1;
-            min-width: 50%;
-            padding: 40px;
-            /* Reduced padding */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background-color: white;
-        }
-
-        .slider-content h3 {
-            font-size: 28px;
-            /* Slightly smaller */
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .slider-content p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        /* Slider Navigation */
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ddd;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background-color: #0066cc;
-            transform: scale(1.2);
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-
-            .service-section .container,
-            .about-section .container,
-            .product-section {
-                max-width: 100%;
-                padding: 0 60px;
-            }
-
-            .product-slider {
-                min-height: 380px;
-            }
-
-            .slider-content {
-                padding: 35px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .mobile-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            }
-
-            .main-nav.active {
-                display: block;
-            }
-
-            .nav-list {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 10px;
-            }
-
-            .submenu {
-                position: static;
-                box-shadow: none;
-                padding-left: 20px;
-            }
-
-            .submenu .submenu {
-                left: 0;
-            }
-
-            .image-slider {
-                height: 400px;
-                margin-top: 70px;
-            }
-
-            .content-section {
-                max-width: 100%;
-                margin: 50px auto;
-                padding: 0 30px;
-            }
-
-            .content-section h2 {
-                font-size: 32px;
-            }
-
-            .content-section p {
-                font-size: 16px;
-                text-align: left;
-            }
-
-            .service-section {
-                padding: 60px 0;
-                margin: 60px 0;
-            }
-
-            .service-section .container {
-                padding: 0 30px;
-                gap: 30px;
-            }
-
-            .service-card {
-                min-width: 280px;
-                padding: 40px 20px;
-            }
-
-            .service-card h2 {
-                font-size: 22px;
-            }
-
-            .service-card p {
-                font-size: 15px;
-            }
-
-            .about-section {
-                padding: 60px 0;
-                margin: 60px 0;
-            }
-
-            .about-btn {
-                padding: 16px 35px;
-                font-size: 17px;
-            }
-
-            .product-section {
-                padding: 0 30px;
-                margin: 60px auto;
-            }
-
-            .product-section h2 {
-                font-size: 32px;
-            }
-
-            .product-section p {
-                font-size: 16px;
-                margin-bottom: 40px;
-            }
-
-            .category-buttons {
-                gap: 10px;
-                margin-bottom: 40px;
-            }
-
-            .category-btn {
-                min-width: 140px;
-                padding: 12px 20px;
-            }
-
-            .product-slider {
-                flex-direction: column;
-                min-height: auto;
-            }
-
-            .slider-image-container {
-                min-height: 250px;
-                /* Lower height on mobile */
-            }
-
-            .slider-content {
-                padding: 25px;
-            }
-
-            .slider-content h3 {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .image-slider {
-                height: 300px;
-            }
-
-            .content-section {
-                margin: 40px auto;
-                padding: 0 20px;
-            }
-
-            .content-section h2 {
-                font-size: 28px;
-            }
-
-            .content-section p {
-                font-size: 15px;
-                line-height: 1.6;
-            }
-
-            .service-section {
-                padding: 50px 0;
-                margin: 50px 0;
-            }
-
-            .service-section .container {
-                padding: 0 20px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service-card {
-                width: 100%;
-                max-width: 350px;
-            }
-
-            .service-card::before {
-                font-size: 50px;
-            }
-
-            .about-section {
-                padding: 50px 0;
-                margin: 50px 0;
-            }
-
-            .about-section .container {
-                padding: 0 20px;
-            }
-
-            .about-btn {
-                padding: 14px 30px;
-                font-size: 16px;
-                min-width: 250px;
-            }
-
-            .product-section {
-                padding: 0 20px;
-                margin: 50px auto;
-            }
-
-            .product-section h2 {
-                font-size: 28px;
-            }
-
-            .product-section p {
-                font-size: 15px;
-                margin-bottom: 30px;
-            }
-
-            .category-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .category-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .slider-content h3 {
-                font-size: 22px;
-            }
-
-            .slider-content {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .service-section .container {
-                padding: 0 15px;
-            }
-
-            .service-card {
-                padding: 30px 20px;
-            }
-
-            .about-section .container {
-                padding: 0 15px;
-            }
-
-            .about-btn {
-                padding: 12px 25px;
-                font-size: 15px;
-                min-width: 220px;
-                gap: 8px;
-            }
-
-            .product-section {
-                padding: 0 15px;
-            }
-
-            .slider-content {
-                padding: 18px;
-            }
-
-            .slider-content h3 {
-                font-size: 20px;
-            }
-
-            .slider-content p {
-                font-size: 14px;
-            }
-        }
+       
     </style>
 </head>
 
@@ -773,7 +32,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="./about.html" class="nav-link">
                             About Us <span class="nav-arrow">▼</span>
                         </a>
                         <ul class="submenu">
@@ -945,6 +204,156 @@
         </div>
         </div>
     </section>
+
+
+
+   <section class="info-section">
+    <div class="container">
+        <div class="foam-container">
+            <!-- Left Side: Enquiry Form -->
+            <div class="foam">
+                <h2>Send Your Enquiry</h2>
+                <form class="enquiry-form">
+                    <div class="form-group">
+                        <label for="name">Full Name </label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address </label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country">Country </label>
+                            <select id="country" name="country" required>
+                                <option value="" disabled selected>Select your country</option>
+                                <option value="india">India</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                                <option value="japan">Japan</option>
+                                <option value="china">China</option>
+                                <option value="bangladesh">Bangladesh</option>
+                                <option value="sri-lanka">Sri Lanka</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Contact Number </label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="enquiry-details">Enquiry Details </label>
+                        <textarea id="enquiry-details" name="enquiry-details" required 
+                                  placeholder="Please describe your enquiry in detail..." 
+                                  rows="5"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Enquiry</button>
+                </form>
+            </div>
+            
+            <!-- Right Side: Image -->
+            <div class="info-image">
+                <img src="./Assets/contactus1-1.jpg" alt="Customer Service Representative">
+                <div class="image-overlay">
+                    <h3>We're Here to Help!</h3>
+                    <p>Our team will respond to your enquiry within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer id="footer" class="site-footer">
+    <div class="footer-inner container">
+        <div class="footer-widgets">
+            
+            <!-- About Us Section -->
+            <div class="footer-box">
+                <div class="footer-widget">
+                    <h3 class="widget-title">About Us</h3>
+                    <div class="widget-content">
+                        <img src="./Assets/galaxylogo3-300x97.png" alt="Galaxy Logo" width="225" class="footer-logo">
+                        <p>Arun Shuttle Industries is a manufacturer of textile spinning and weaving machinery spare parts. We commenced our journey in 1982, and now serve 1500+ customers in 36+ countries worldwide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memberships Section -->
+            <div class="footer-box">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Memberships</h3>
+                    <div class="widget-content">
+                        <figure class="membership-logo">
+                            <img src="./Assets/fieologo1.gif" alt="FIEO Logo" width="215" height="60">
+                        </figure>
+                        <figure class="membership-logo">
+                            <img src="./Assets/eepclogo1.gif" alt="EEPC Logo" width="215" height="60">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="footer-box">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Our Products</h3>
+                    <nav class="products-menu" aria-label="Product categories">
+                        <ul>
+                            <li><a href="#">Weaving Spares</a></li>
+                            <li><a href="#">Spinning Spares</a></li>
+                            <li><a href="#">Plastic Woven Sacks</a></li>
+                            <li><a href="#">Roll Shop Machines</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="footer-box">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Contact Us</h3>
+                    <address class="contact-info">
+                        <div class="contact-item">
+                            <strong class="contact-label">Phone:</strong>
+                            <a href="tel:+917940090950">+91-79-40090950</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong class="contact-label">Email:</strong>
+                            <a href="mailto:ayush@galaxyproduct.com">ayush@galaxyproduct.com</a> / 
+                            <a href="mailto:galaxyproduct@gmail.com">galaxyproduct@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong class="contact-label">Address:</strong>
+                            <p>A 1003-1004 Sankalp Iconic Tower,<br>
+                            Bopal Ambli Road,<br>
+                            Ahmedabad – 380058 Gujarat, INDIA</p>
+                        </div>
+                    </address>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
 
    <script>
     // Mobile Menu Toggle
@@ -1132,6 +541,53 @@
 
         // Initialize with weaving products
         updateProductDisplay('weaving', 0);
+    });
+     // Form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const enquiryForm = document.querySelector('.enquiry-form');
+        
+        if (enquiryForm) {
+            enquiryForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    country: document.getElementById('country').value,
+                    phone: document.getElementById('phone').value,
+                    enquiryDetails: document.getElementById('enquiry-details').value
+                };
+                
+                // Validate form
+                if (!formData.name || !formData.email || !formData.country || !formData.phone || !formData.enquiryDetails) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Here you would typically send the data to a server
+                // For now, we'll just show a success message
+                
+                // Show loading state
+                const submitBtn = enquiryForm.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
+                    alert('Thank you for your enquiry! We will get back to you within 24 hours.');
+                    
+                    // Reset form
+                    enquiryForm.reset();
+                }, 1500);
+            });
+        }
     });
 </script>
 </body>
