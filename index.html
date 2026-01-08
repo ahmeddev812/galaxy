@@ -7,10 +7,7 @@
     <title>Textile Machinery Spares</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <style>
-        /* Reset and Base Styles */
-       
-    </style>
+   
 </head>
 
 <body>
@@ -28,7 +25,7 @@
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link current">Home</a>
+                        <a href="./index.html" class="nav-link current">Home</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -55,7 +52,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link">
+                        <a href="./product.html" class="nav-link">
                             Products <span class="nav-arrow">▼</span>
                         </a>
                         <ul class="submenu">
@@ -92,7 +89,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
+                        <a href="./contact.html" class="nav-link">Contact Us</a>
                     </li>
 
                     <li class="nav-item">
@@ -355,241 +352,7 @@
     </div>
 </footer>
 
-   <script>
-    // Mobile Menu Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const mainNav = document.getElementById('mainNav');
-
-    mobileToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.main-nav') && !e.target.closest('.mobile-toggle')) {
-            mainNav.classList.remove('active');
-        }
-    });
-
-    // Simple dropdown for mobile
-    if (window.innerWidth <= 992) {
-        const dropdowns = document.querySelectorAll('.dropdown > .nav-link');
-
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('click', (e) => {
-                if (e.target.closest('.dropdown')) {
-                    e.preventDefault();
-                    const parent = e.target.closest('.dropdown');
-                    parent.classList.toggle('active');
-                }
-            });
-        });
-    }
-
-    // Homepage Image Slider
-    document.addEventListener('DOMContentLoaded', function () {
-        const slides = document.querySelectorAll('.slider-image');
-        if (slides.length === 0) return;
-
-        let currentSlide = 0;
-        let slideInterval;
-
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        function nextSlide() {
-            let nextIndex = (currentSlide + 1) % slides.length;
-            showSlide(nextIndex);
-        }
-
-        // Start auto-sliding
-        if (slides.length > 1) {
-            showSlide(0);
-            slideInterval = setInterval(nextSlide, 5000);
-        } else {
-            showSlide(0);
-        }
-
-        // Pause on hover
-        const slider = document.querySelector('.image-slider');
-        if (slider && slides.length > 1) {
-            slider.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-
-            slider.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
-            });
-        }
-    });
-
-    // Product Slider Functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        const productImage = document.getElementById('productImage');
-        const productTitle = document.getElementById('productTitle');
-        const productDescription = document.getElementById('productDescription');
-        const sliderDots = document.querySelectorAll('.slider-dot');
-
-        // Product Data
-        const products = {
-            weaving: {
-                title: "Weaving Machine Spare Parts",
-                description: "High-quality spare parts for all types of weaving machines including Shuttle Looms, Sulzer Projectile, Sulzer Rapier, Vamatex, and Nuovo Pignone machines. Manufactured with precision engineering for durability and performance.",
-                images: [
-                    "./Assets/gweaving-1.jpg",
-                    "./Assets/gweaving-2.jpg",
-                    "./Assets/gweaving-3.jpg",
-                    "./Assets/gweaving-4.jpg"
-                ]
-            },
-            spinning: {
-                title: "Spinning Machine Spare Parts",
-                description: "Premium spare parts for spinning machines including Blowroom, Carding, Draw Frame, Speed Frames, and Comber machines. Designed to enhance machine efficiency and reduce downtime.",
-                images: [
-                    "./Assets/gspinning-1.jpg",
-                    "./Assets/gspinning-2.jpg",
-                    "./Assets/gspinning-3.jpg",
-                    "./Assets/gspinning-4.jpg"
-                ]
-            },
-            plastic: {
-                title: "Plastic Woven Sacks Machinery",
-                description: "Complete machinery and spare parts for plastic woven sack manufacturing. From extrusion to printing and stitching, we provide reliable solutions for the packaging industry.",
-                images: [
-                    "./Assets/gplastic-woven.jpg",
-                    "./Assets/gplastic-woven.jpg",
-                    "./Assets/gplastic-woven.jpg",
-                    "./Assets/gplastic-woven.jpg"
-                ]
-            },
-            rollshop: {
-                title: "Roll Shop Machines",
-                description: "Advanced roll shop machinery for textile processing units. Our machines ensure precise winding, unwinding, and processing of textile rolls with maximum efficiency.",
-                images: [
-                    "./Assets/rollshopp5.jpg",
-                    "./Assets/rollshopp5.jpg",
-                    "./Assets/rollshopp5.jpg",
-                    "./Assets/rollshopp5.jpg"
-                ]
-            }
-        };
-
-        let currentCategory = 'weaving';
-        let currentImageIndex = 0;
-
-        // Function to update product display
-        function updateProductDisplay(category, imageIndex = 0) {
-            const product = products[category];
-
-            // Update product info
-            productTitle.textContent = product.title;
-            productDescription.textContent = product.description;
-
-            // Update image
-            productImage.src = product.images[imageIndex];
-
-            // Update active dots
-            sliderDots.forEach((dot, index) => {
-                if (index === imageIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
-        }
-
-        // Category button click events
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                // Remove active class from all buttons
-                categoryButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                });
-
-                // Add active class to clicked button
-                this.classList.add('active');
-
-                // Determine category
-                const id = this.id;
-                if (id === 'btnWeaving') currentCategory = 'weaving';
-                else if (id === 'btnSpinning') currentCategory = 'spinning';
-                else if (id === 'btnPlastic') currentCategory = 'plastic';
-                else if (id === 'btnRollShop') currentCategory = 'rollshop';
-
-                // Reset to first image
-                currentImageIndex = 0;
-
-                // Update display
-                updateProductDisplay(currentCategory, currentImageIndex);
-            });
-        });
-
-        // Slider dot click events
-        sliderDots.forEach(dot => {
-            dot.addEventListener('click', function () {
-                const index = parseInt(this.getAttribute('data-index'));
-                if (!isNaN(index) && index >= 0 && index < 4) {
-                    currentImageIndex = index;
-                    updateProductDisplay(currentCategory, currentImageIndex);
-                }
-            });
-        });
-
-        // Initialize with weaving products
-        updateProductDisplay('weaving', 0);
-    });
-     // Form submission handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const enquiryForm = document.querySelector('.enquiry-form');
-        
-        if (enquiryForm) {
-            enquiryForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = {
-                    name: document.getElementById('name').value,
-                    email: document.getElementById('email').value,
-                    country: document.getElementById('country').value,
-                    phone: document.getElementById('phone').value,
-                    enquiryDetails: document.getElementById('enquiry-details').value
-                };
-                
-                // Validate form
-                if (!formData.name || !formData.email || !formData.country || !formData.phone || !formData.enquiryDetails) {
-                    alert('Please fill in all required fields.');
-                    return;
-                }
-                
-                // Here you would typically send the data to a server
-                // For now, we'll just show a success message
-                
-                // Show loading state
-                const submitBtn = enquiryForm.querySelector('.submit-btn');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-                
-                // Simulate API call
-                setTimeout(() => {
-                    // Reset button
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    
-                    // Show success message
-                    alert('Thank you for your enquiry! We will get back to you within 24 hours.');
-                    
-                    // Reset form
-                    enquiryForm.reset();
-                }, 1500);
-            });
-        }
-    });
-</script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

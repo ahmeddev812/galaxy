@@ -1335,4 +1335,338 @@
     .about-text-content p {
         font-size: 14px;
     }
+}/* Cards Section */
+.cards-section {
+    width: 100%;
+    padding: 80px 0;
+    background-color: white;
+}
+
+.cards-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    
+}
+
+
+
+.card-content {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    color: #333;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    
+    .card-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-section {
+        padding: 60px 0;
+    }
+    
+    .cards-container {
+        padding: 0 20px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 500px;
+    }
+    
+    .card-image {
+        height: 220px;
+    }
+    
+    .card-title {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-container {
+        padding: 0 15px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+}/* Responsive Navigation Fixes */
+@media (max-width: 992px) {
+    .nav-item.dropdown.active .submenu {
+        display: block;
+        position: static;
+        box-shadow: none;
+    }
+    
+    .nav-item.dropdown.active .nav-arrow {
+        transform: rotate(180deg);
+    }
+}
+
+/* Card Hover Effects Enhancement */
+.card-image img {
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.product-card:hover .card-title {
+    color: #0066cc;
+}
+
+/* Fix for About Button */
+.about-btn {
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix for mobile dropdown arrows */
+@media (max-width: 992px) {
+    .nav-arrow {
+        margin-left: auto;
+    }
+    
+    .dropdown > .nav-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+/* Image optimization */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Contact page specific fixes */
+.contact-page .info-section {
+    margin-top: 80px;
+}
+
+/* Ensure cards don't overflow on very small screens */
+@media (max-width: 360px) {
+    .cards-container {
+        gap: 20px;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .card-title {
+        font-size: 16px;
+    }
+}
+
+/* Fix for footer contact links on mobile */
+@media (max-width: 480px) {
+    .contact-info a {
+        word-break: break-all;
+    }
+}
+
+/* Loading states */
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Accessibility improvements */
+.nav-link:focus,
+.category-btn:focus,
+.about-btn:focus,
+.submit-btn:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .site-header,
+    .info-section,
+    .site-footer {
+        display: none;
+    }
+    
+    .image-slider {
+        height: 300px;
+    }
+}
+/* Fix for mobile menu staying open */
+@media (max-width: 992px) {
+    .main-nav.active {
+        display: block !important;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    /* Better mobile toggle button */
+    .mobile-toggle {
+        z-index: 1001;
+        padding: 10px;
+        background: none;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Ensure submenus are visible when active */
+    .dropdown.active > .submenu {
+        display: block !important;
+    }
+    
+    /* Fix for dropdown arrows in mobile */
+    .dropdown.active > .nav-link .nav-arrow {
+        transform: rotate(180deg);
+    }
+    
+    /* Ensure proper spacing for mobile navigation */
+    .nav-list {
+        padding: 10px 0;
+    }
+    
+    .nav-item {
+        margin-bottom: 5px;
+    }
+    
+    .nav-link {
+        padding: 12px 15px;
+    }
+    
+    /* Fix for form on mobile */
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Fix for About page images on mobile */
+@media (max-width: 768px) {
+    .about-image {
+        max-height: 400px;
+    }
+    
+    .about-text-content {
+        padding: 20px;
+    }
+    
+    .about-heading {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Fix for cards on very small screens */
+@media (max-width: 480px) {
+    .cards-section {
+        padding: 40px 0;
+    }
+    
+    .cards-container {
+        padding: 0 15px;
+        gap: 20px;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .card-title {
+        font-size: 16px;
+    }
+}
+
+/* Ensure all links are tappable on mobile */
+@media (max-width: 768px) {
+    a, button, input[type="submit"], .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* Fix for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .site-header {
+        position: sticky;
+    }
+    
+    .mobile-toggle {
+        cursor: pointer;
+    }
+}
+
+/* Fix for Android Chrome */
+@media (max-width: 992px) {
+    .main-nav {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Ensure proper viewport scaling */
+@media (max-width: 992px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
 }
